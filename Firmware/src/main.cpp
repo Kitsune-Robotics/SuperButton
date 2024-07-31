@@ -2,17 +2,22 @@
  * by 1721 Tidal Force!
  */
 
-#include <Arduino.h>
+#include "delay.h"
 
-void setup()
+void main(void)
 {
-    pinMode(LED_BUILTIN, OUTPUT);
-}
+    INIT_PIN // Macro if needed to initialize output pin
+        while (1)
+    {
+        ledPin = 0x00;   // LED on
+        delay_c_ds(250); // Software delay 2500ms
+        ledPin = 0xff;   // LED off
+        delay_s_ds(250); // Software delay 2500ms
 
-void loop()
-{
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(1000);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(1000);
+        // int n;
+        // ledPin = 0;                  // LED on
+        // for (n = 0; n < 50000; n++); // waste some cycles
+        // ledPin = 1;                  // LED off
+        // for (n = 0; n < 50000; n++); // waste some cycles
+    }
 }
